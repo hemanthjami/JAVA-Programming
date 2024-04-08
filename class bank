@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+// BankAccount class definition
+class BankAccount {
+    private String accountNumber;
+    private String accountHolderName;
+    private double balance;
+
+    // Constructor to initialize account details
+    public BankAccount(String accountNumber, String accountHolderName, double balance) {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        this.balance = balance;
+    }
+
+    // Method to deposit money into the account
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Amount deposited successfully.");
+    }
+
+    // Method to withdraw money from the account
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Amount withdrawn successfully.");
+        } else {
+            System.out.println("Insufficient balance. Withdrawal failed.");
+        }
+    }
+
+    // Method to display account details
+    public void displayAccountInfo() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Account Holder Name: " + accountHolderName);
+        System.out.println("Balance: $" + balance);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        // Create a BankAccount object
+        BankAccount account1 = new BankAccount("123456789", "John Doe", 1000.0);
+
+        // Display account details
+        account1.displayAccountInfo();
+
+        // Perform transactions
+        account1.deposit(500.0);
+        account1.withdraw(200.0);
+
+        // Display updated account details
+        account1.displayAccountInfo();
+    }
+}
